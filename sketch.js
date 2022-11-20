@@ -7,7 +7,8 @@
 let speech;
 
 function setup() {
-  noCanvas();
+  resizeCanvas(windowWidth, windowHeight);
+  background("orange");
   // Create a Speech Recognition object with callback
   speechRec = new p5.SpeechRec("en-US", gotSpeech);
   // "Continuous recognition" (as opposed to one time only)
@@ -17,8 +18,14 @@ function setup() {
   // This must come after setting the properties
   speechRec.start(continuous, interimResults);
 
+  textSize(48);
+  textAlign(CENTER);
+  textFont("sans-serif");
+  text("SAY A COLOR", width / 2, height / 2);
+
   // DOM element to display results
-  let output = select("#speech");
+
+  const colors = [];
 
   // Speech recognized event
   function gotSpeech() {
@@ -27,8 +34,11 @@ function setup() {
     console.log(speechRec);
     if (speechRec.resultValue) {
       let said = speechRec.resultString;
+      const color = speechRec.resultString.split(" ").pop();
+      text(color, width / 2, height / 2);
+      console.log(color);
+      background(color);
       // Show user
-      output.html(said);
     }
   }
 }
