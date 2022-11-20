@@ -20,7 +20,8 @@ function setup() {
 
   textSize(48);
   textAlign(CENTER);
-  textFont("sans-serif");
+  textStyle(BOLDITALIC);
+  textFont('"Avenir Next", system-ui, sans-serif');
   text("SAY A COLOR", width / 2, height / 2);
 
   // DOM element to display results
