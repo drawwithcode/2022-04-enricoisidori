@@ -2,17 +2,73 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>01_basics</title>
+    <title>Draw and Learn Colors</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/zvv0hmk.css" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
     <script src="https://rawcdn.githack.com/IDMNYU/p5.js-speech/e7ae007d61f048fc2379971b0de7d5db8abb7eee/lib/p5.speech.js"></script>
     <script src="sketch.js"></script>
   </head>
 
-  <body></body>
+  <body>
+    <div id="supporto">
+      <p id="sup" onclick="closeDiv()">X</p>
+      <p class="main" id="txtsup">
+        <span style="color: rgb(254, 42, 42)" onclick="talkred()">Red</span>
+        <br />
+        <span style="color: orange" onclick="talkorange()">Orange</span><br />
+        <span style="color: rgb(255, 230, 0)" onclick="talkyellow()"
+          >Yellow</span
+        ><br />
+        <span style="color: green" onclick="talkgreen()"> Green</span> <br />
+        <span style="color: blue" onclick="talkblue()"> Blue</span> <br />
+        <span style="color: purple" onclick="talkpurple()"> Purple</span><br />
+        <span style="color: pink" onclick="talkpink()"> Pink</span>
+      </p>
+    </div>
+
+    <p class="main" id="txt1">
+      Draw <br />
+      and<br />
+      learn <br />
+      colors
+    </p>
+
+    <p class="main" id="txt2">
+      Yell out<br />
+      a color name<br />
+      to use it<br />
+    </p>
+
+    <p id="sup" onclick="showDiv()">?</p>
+  </body>
+
+  <script>
+    const txt1 = document.getElementById("txt1");
+    const txt2 = document.getElementById("txt2");
+    const supporto = document.getElementById("supporto");
+    setTimeout(() => {
+      txt1.style.display = "none";
+      txt2.style.display = "flex";
+    }, 3000);
+
+    setTimeout(() => {
+      txt2.style.display = "none";
+    }, 6000);
+
+    function showDiv() {
+      supporto.style.display = "flex";
+    }
+
+    function closeDiv() {
+      supporto.style.display = "none";
+    }
+  </script>
 </html>
