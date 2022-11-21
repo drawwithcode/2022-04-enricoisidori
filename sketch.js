@@ -1,4 +1,5 @@
 //ho ripreso lo speech recognition da Daniel Shiffman (https://github.com/shiffman/A2Z-F18) (http://shiffman.net/a2z)
+//in genrale funziona sia su desktop che su mobile, su android ho visto che potrebbe non funzionare
 
 // Speech Object
 let speech;
@@ -6,6 +7,7 @@ let appvoice;
 
 function setup() {
   voiceapp = new p5.Speech(voiceReady); //callback, speech synthesis object
+  //su desktop funziona, su mobile non riesco a cambiarlo in inglese, rimane in italiano
   voiceapp.setLang("en-UK");
   voiceapp.started();
   //speech.ended(endSpeaking);
@@ -209,8 +211,8 @@ function setup() {
 function feedback() {
   push();
   strokeWeight(12);
-  rect(0, 0, width, height, 10);
   noFill();
+  rect(0, 0, width, height, 10);
   pop();
 }
 
